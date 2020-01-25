@@ -11,7 +11,7 @@ namespace RegistroWpfApp.BLL
 {
    public  class PersonaBLL
     {
-        public static bool Guardar(Persona persona)
+        public static bool Guardar(Personas persona)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -31,7 +31,7 @@ namespace RegistroWpfApp.BLL
             return paso;
         }
 
-        public static bool Modificar(Persona persona)
+        public static bool Modificar(Personas persona)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -64,7 +64,7 @@ namespace RegistroWpfApp.BLL
             try
             {
                 var eliminar = db.Personas.Find(id);
-                db.Entity(eliminar).State = EntityState.Deleted;
+                db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
@@ -77,10 +77,10 @@ namespace RegistroWpfApp.BLL
             }
             return paso;
         }
-        public static Persona Buscar(int id)
+        public static Personas Buscar(int id)
         {
             Contexto db = new Contexto();
-            Persona persona = new Persona();
+            Personas persona = new Personas();
             try
             {
                 persona = db.Personas.Find(id);
@@ -99,10 +99,10 @@ namespace RegistroWpfApp.BLL
 
         }
 
-        public static List<Persona>GetLis(Expression<Func<Persona,bool>> persona)
+        public static List<Personas>GetLis(Expression<Func<Personas,bool>> persona)
         {
-            List<Persona> lista = new List<Persona>();
-            Contexto db = new Contexto();
+            List<Personas> lista = new List<Personas>();
+           Contexto db = new Contexto();
             try
             {
                 lista = db.Personas.Where(persona).ToList(); 

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="UI\Cosultas\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
 
