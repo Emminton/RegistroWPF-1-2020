@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RegistroWpfApp.UI;
+using RegistroWpfApp.UI.Registros;
+using RegistroWpfApp.UI.Cosultas;
 
 namespace RegistroWpfApp
 {
@@ -23,6 +26,21 @@ namespace RegistroWpfApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ConsultaMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (ConsultaMain.SelectedIndex)
+            {
+                case 0:
+                    RegistroPersona ro = new RegistroPersona();
+                    ro.Show();
+                    break;
+                case 1:
+                    Consultar aa = new Consultar();
+                    aa.Show();
+                    break;
+            }
         }
     }
 }

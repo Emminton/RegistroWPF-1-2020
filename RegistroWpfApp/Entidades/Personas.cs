@@ -15,14 +15,14 @@ namespace RegistroWpfApp.Entidades
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
-        public Personas(int personaId, string nombre, string telefono, string celular, string direccion, DateTime fechaNacimiento)
+        public Personas()
         {
-            PersonaId = personaId;
-            Nombre = nombre;
-            Telefono = telefono;
-            Cedula = celular;
-            Direccion = direccion;
-            FechaNacimiento = fechaNacimiento;
+            PersonaId = 0;
+            Nombre = string.Empty;
+            Telefono = string.Empty;
+            Cedula = string.Empty;
+            Direccion = string.Empty;
+            FechaNacimiento = DateTime.Now;
         }
     }
 }

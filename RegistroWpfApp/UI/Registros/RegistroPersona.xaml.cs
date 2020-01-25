@@ -34,7 +34,7 @@ namespace RegistroWpfApp.UI.Registros
             
         }
 
-        private Personas LlenaClase()
+        private  Personas LlenaClase()
         {
             Personas pers = new Personas();
             pers.PersonaId = Convert.ToInt32(PersonaIDTex.Text);
@@ -43,6 +43,19 @@ namespace RegistroWpfApp.UI.Registros
             pers.Cedula = CedulaTex.Text;
             pers.Direccion = DireccionTex.Text;
             pers.FechaNacimiento = FechaNacimientoDatePicke.DisplayDate;
+
+            return pers;
+        }
+
+        private void LlenaCampo(Personas persona)
+        {
+            PersonaIDTex.Text = Convert.ToString(persona.PersonaId);
+            NombreTex.Text = persona.Nombre;
+            TelefonoTex.Text = persona.Telefono;
+            CedulaTex.Text = persona.Cedula;
+            DireccionTex.Text = persona.Direccion;
+            FechaNacimientoDatePicke.SelectedDate = persona.FechaNacimiento;
+
         }
 
         private void ___NuevoButton__Click(object sender, RoutedEventArgs e)
@@ -50,7 +63,7 @@ namespace RegistroWpfApp.UI.Registros
             Limpiar();
         }
 
-        private void ___GuardaButton__Click(object sender, RoutedEventArgs e)
+private void ___GuardaButton__Click(object sender, RoutedEventArgs e)
         {
             Personas persona;
             bool paso = false;
@@ -59,7 +72,7 @@ namespace RegistroWpfApp.UI.Registros
 
             persona = LlenaClase();
 
-            if (PersonaIDTex.Text =="0")//tengo que terminar
+            if (PersonaIDTex.Text =="0")
                 paso = PersonaBLL.Guardar(persona);
             else
             {
@@ -98,9 +111,48 @@ namespace RegistroWpfApp.UI.Registros
 
         }
 
-        private void Validar()
+        private bool Validar()
         {
+            bool paso = true;
+            MessageBox.Show("error ");
 
+            if(PersonaIDTex.Text== "0")
+            {
+                MessageBox.Show("LE Campo ID no puedestar vacio");
+                PersonaIDTex.Focus();
+                paso = false;
+
+            }
+            if (NombreTex.Text== string.Empty)
+            {
+                MessageBox.Show("El Campo nombre no puede estar vacio");
+                NombreTex.Focus();
+                paso = false;
+            }
+            if(TelefonoTex.Text == string.Empty)
+            {
+                MessageBox.Show("El campo telefono no puede estar vacio");
+                TelefonoTex.Focus();
+                paso = false;
+
+            }
+            if(CedulaTex.Text == string.Empty)
+            {
+                MessageBox.Show("El campo cedula no pude estar vacio");
+                CedulaTex.Focus();
+                paso = false;
+
+            }
+            if(DireccionTex.Text == string.Empty)
+            {
+                MessageBox.Show("El campo direcion no puede estar vacio");
+                DireccionTex.Focus();
+                paso = false;
+
+            }
+
+            return paso;
+            
         }
 
         private void ___BuscarButton__Click(object sender, RoutedEventArgs e)
@@ -114,7 +166,7 @@ namespace RegistroWpfApp.UI.Registros
             if(persona != null)
             {
                 MessageBox.Show("persona encontrada");
-                LlenaClase(persona);
+                LlenaCampo(persona);
 
             }
             else
@@ -122,7 +174,6 @@ namespace RegistroWpfApp.UI.Registros
                 MessageBox.Show("persona no encontrada");
             }
         }   
-        
-         
+               
     }
 }

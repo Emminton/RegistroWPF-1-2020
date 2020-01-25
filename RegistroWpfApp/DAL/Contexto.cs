@@ -8,13 +8,11 @@ namespace RegistroWpfApp.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Personas> Personas { get; set; }
+        public DbSet<Personas> Persona { get; set; }
 
-        public override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optiondBilder)
         {
-            optionsBuilder.UseSqlServer(@"Server= DESKTOP-Q0TL685; Database= TesTDb; Trusted_Conmection = True;");
-            //aqui agregamo un string donde expesificar el servidor; la base de datos y el tipo de conexion
+            optiondBilder.UseSqlServer(@"Server =DESKTOP-Q0TL685; Database = PersonaDb;Trusted_Connection = True; ");
         }
     }
-    
 }

@@ -17,7 +17,7 @@ namespace RegistroWpfApp.BLL
             Contexto db = new Contexto();
             try
             {
-                if (db.Personas.Add(persona) != null)
+                if (db.Persona.Add(persona) != null)
                     paso = db.SaveChanges() > 0;
             }
             catch (Exception)
@@ -63,7 +63,7 @@ namespace RegistroWpfApp.BLL
             Contexto db = new Contexto();
             try
             {
-                var eliminar = db.Personas.Find(id);
+                var eliminar = db.Persona.Find(id);
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
@@ -83,7 +83,7 @@ namespace RegistroWpfApp.BLL
             Personas persona = new Personas();
             try
             {
-                persona = db.Personas.Find(id);
+                persona = db.Persona.Find(id);
 
             }
             catch (Exception)
@@ -95,7 +95,7 @@ namespace RegistroWpfApp.BLL
                 db.Dispose();
 
             }
-            return persona();
+            return persona;
 
         }
 
@@ -105,7 +105,7 @@ namespace RegistroWpfApp.BLL
            Contexto db = new Contexto();
             try
             {
-                lista = db.Personas.Where(persona).ToList(); 
+                lista = db.Persona.Where(persona).ToList(); 
             }
             catch (Exception)
             {
