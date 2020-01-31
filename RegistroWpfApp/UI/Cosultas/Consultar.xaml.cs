@@ -24,14 +24,12 @@ namespace RegistroWpfApp.UI.Cosultas
         {
             InitializeComponent();
         }
-
         private void ConsultarButto_Click(object sender, RoutedEventArgs e)
         {
             var listado = new List<Personas>();
 
             if (CriterioTexBox.Text.Trim().Length > 0)
             {
-
                 switch (FiltrarComBox.SelectedIndex)
                 {
                     case 0:
@@ -58,13 +56,9 @@ namespace RegistroWpfApp.UI.Cosultas
                     case 5:
                         listado = PersonaBLL.GetLis(p => p.Cedula.Contains(CriterioTexBox.Text));
                         break;
-
-
+                   
                 }
-
-
                 listado = listado.Where(c => c.FechaNacimiento.Date >= DesdeDateTimePcker.SelectedDate.Value && c.FechaNacimiento.Date <= HastaDateTimePicker.SelectedDate.Value).ToList();
-
 
             }
             else
@@ -72,9 +66,9 @@ namespace RegistroWpfApp.UI.Cosultas
                 listado = PersonaBLL.GetLis(p => true);
 
             }
-            ConsultaDateGridView.ItemsSource = listado;
+            //listado = listado.Where(c => c.FechaNacimiento.Date >= DesdeDateTimePcker.SelectedDate.Value && c.FechaNacimiento.Date <= HastaDateTimePicker.SelectedDate.Value).ToList();
             ConsultaDateGridView.ItemsSource = null;
-
+            ConsultaDateGridView.ItemsSource = listado;
         }
     }
 }

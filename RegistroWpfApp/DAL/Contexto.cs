@@ -12,7 +12,7 @@ namespace RegistroWpfApp.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optiondBilder)
         {
-            optiondBilder.UseSqlServer(@"Server =DESKTOP-Q0TL685; Database = PersonaDb;Trusted_Connection = True; ");
+            optiondBilder.UseSqlServer(@"Server =.\SqlExpress; Database = PersonaDb;Trusted_Connection = True; ");
         }
     }
 }

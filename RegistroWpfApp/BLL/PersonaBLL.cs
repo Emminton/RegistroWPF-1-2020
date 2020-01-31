@@ -30,7 +30,6 @@ namespace RegistroWpfApp.BLL
             }
             return paso;
         }
-
         public static bool Modificar(Personas persona)
         {
             bool paso = false;
@@ -40,7 +39,6 @@ namespace RegistroWpfApp.BLL
             {
                 db.Entry(persona).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
-
 
             }
             catch (Exception)
@@ -53,10 +51,8 @@ namespace RegistroWpfApp.BLL
                 db.Dispose();
 
             }
-            return paso;
-            
+            return paso;          
         }
-
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -96,9 +92,7 @@ namespace RegistroWpfApp.BLL
 
             }
             return persona;
-
         }
-
         public static List<Personas>GetLis(Expression<Func<Personas,bool>> persona)
         {
             List<Personas> lista = new List<Personas>();
