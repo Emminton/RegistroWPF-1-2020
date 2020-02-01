@@ -93,6 +93,7 @@ namespace RegistroWpfApp.BLL
             }
             return estudiante;
         }
+       
         public static List<Estudiantes>GetLis(Expression<Func<Estudiantes,bool>> estudiante)
         {
             List<Estudiantes> lista = new List<Estudiantes>();

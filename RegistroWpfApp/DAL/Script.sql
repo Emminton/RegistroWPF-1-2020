@@ -12,7 +12,7 @@ Telefono varchar (13),
 Cedula varchar (15),
 Direccion varchar (max),
 FechaNacimiento dateTime,
-Balances decimal,
+Balance decimal,
 
 );
 
@@ -24,5 +24,6 @@ EstudianteId int ,
 Comentario varchar(400),
 Monto decimal,
 Pago decimal,
+Balance decimal,
 
 );

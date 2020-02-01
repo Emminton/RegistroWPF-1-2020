@@ -15,13 +15,14 @@ namespace RegistroWpfApp.Entidades
         public string Comentario { get; set; }
         public decimal Pago { get; set; }
         public decimal Monto { get; set; }
+        public decimal Balance { get; set; }
 
         public Inscripciones()
         {
 
         }
 
-        public Inscripciones(int inscripcionId, DateTime fecha, int estudianteId, string comentario, decimal pago, decimal monto)
+        public Inscripciones(int inscripcionId, DateTime fecha, int estudianteId, string comentario, decimal pago, decimal monto,decimal balance)
         {
             InscripcionId = inscripcionId;
             Fecha = fecha;
@@ -29,6 +30,7 @@ namespace RegistroWpfApp.Entidades
             Comentario = comentario;
             Pago = pago;
             Monto = monto;
+            Balance = balance;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace RegistroWpfApp.Entidades
         public string Cedula { get; set; }
         public string Direccion { get; set; }
         public DateTime FechaNacimiento { get; set; }
-       // public decimal Balance { get; set; }
+        public decimal Balance { get; set; }
 
         public Estudiantes()
         {
@@ -30,7 +30,7 @@ namespace RegistroWpfApp.Entidades
             Cedula = cedula;
             Direccion = direccion;
             FechaNacimiento = fechaNacimiento;
-           // Balance = balance;
+            Balance = balance;
         }
     }
 }

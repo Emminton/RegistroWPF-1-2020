@@ -23,6 +23,7 @@ namespace RegistroWpfApp.UI.Registros
         {
             InitializeComponent();
             EstudianteIDTex.Text = "0";
+            BalanceTex.Text = "0";
         }
        private void Limpiar()
         {
@@ -32,7 +33,7 @@ namespace RegistroWpfApp.UI.Registros
             CedulaTex.Text = string.Empty;
             DireccionTex.Text = string.Empty;
             FechaNacimientoDatePicke.SelectedDate = DateTime.Now;
-          
+            BalanceTex.Text = "0";        
             EstudianteIDTex.Text = "0";
         }
 
@@ -45,7 +46,7 @@ namespace RegistroWpfApp.UI.Registros
            estudiante.Cedula = CedulaTex.Text;
            estudiante.Direccion = DireccionTex.Text;
            estudiante.FechaNacimiento = FechaNacimientoDatePicke.DisplayDate;
-           //estudiante.Balance = Convert.ToDecimal(BalanceTex.Text);
+           estudiante.Balance = Convert.ToDecimal(BalanceTex.Text);
            return estudiante;
         }
 
@@ -57,7 +58,7 @@ namespace RegistroWpfApp.UI.Registros
             CedulaTex.Text = estudiantes.Cedula;
             DireccionTex.Text = estudiantes.Direccion;
             FechaNacimientoDatePicke.SelectedDate = estudiantes.FechaNacimiento;
-            //BalanceTex.Text = Convert.ToString(estudiantes.Balance);
+            BalanceTex.Text = Convert.ToString(estudiantes.Balance);
         }
 
         private void ___NuevoButton__Click(object sender, RoutedEventArgs e)

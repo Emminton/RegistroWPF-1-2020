@@ -34,20 +34,27 @@ namespace RegistroWpfApp.UI.Registros
             ComentarioTex.Text = string.Empty;
             MontoTex.Text = string.Empty;
             PagoTex.Text = string.Empty;
+            BalanceTex.Text = string.Empty;
             InscripcionIDTex.Text = "0";
             EstudianteIDTex.Text = "0";
         }
 
         private Inscripciones LlenaClase()
         {
-
+            decimal monto, pago, balance ;
+        
             Inscripciones inscricion = new Inscripciones();
             inscricion.InscripcionId = Convert.ToInt32(InscripcionIDTex.Text);
             inscricion.Fecha = FechaDatePicker.DisplayDate;
             inscricion.EstudianteId = Convert.ToInt32(EstudianteIDTex.Text);
             inscricion.Comentario = ComentarioTex.Text;
-            inscricion.Monto = Convert.ToDecimal(MontoTex.Text);
-            inscricion.Pago = Convert.ToDecimal(PagoTex.Text);
+            inscricion.Balance = Convert.ToDecimal(MontoTex.Text) - Convert.ToDecimal(PagoTex.Text);
+            monto = Convert.ToDecimal(MontoTex.Text);
+            pago = Convert.ToDecimal(PagoTex.Text);
+            balance = monto - pago;
+            inscricion.Monto = monto;
+            inscricion.Pago = pago;
+            inscricion.Balance = balance;
             return inscricion;
         }
 
@@ -58,7 +65,8 @@ namespace RegistroWpfApp.UI.Registros
             EstudianteIDTex.Text = Convert.ToString(inscripcion.EstudianteId);
             ComentarioTex.Text = inscripcion.Comentario;
             MontoTex.Text = Convert.ToString(inscripcion.Monto);
-            PagoTex.Text = Convert.ToString(inscripcion.Pago);          
+            PagoTex.Text = Convert.ToString(inscripcion.Pago);
+            BalanceTex.Text = Convert.ToString(inscripcion.Balance);
         }
 
         private void Guardar_Click(object sender, RoutedEventArgs e)
@@ -172,5 +180,7 @@ namespace RegistroWpfApp.UI.Registros
             
             return paso;
         }
+
+      
     }
 }

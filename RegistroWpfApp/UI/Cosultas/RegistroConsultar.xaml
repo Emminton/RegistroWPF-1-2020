@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroWpfApp.UI.Cosultas"
         mc:Ignorable="d"
-        Title="Consultar Estudiante" Height="450" Width="800">
+        Title="Consultar Estudiante" Height="480" Width="840">
     <Grid>
         <DataGrid x:Name="ConsultaDateGridView" HorizontalAlignment="Center" Height="338" Margin="0,86,0,0" VerticalAlignment="Top" Width="780"/>
         <DatePicker x:Name="DesdeDateTimePcker" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.129,0.049" Width="114"/>
