@@ -22,7 +22,8 @@ namespace RegistroWpfApp.Entidades
 
         }
 
-        public Estudiantes(int estudianteId, string nombre, string telefono, string cedula, string direccion, DateTime fechaNacimiento, decimal balance)
+        public Estudiantes(int estudianteId, string nombre, string telefono, string cedula, 
+            string direccion, DateTime fechaNacimiento, decimal balance)
         {
             EstudianteId = estudianteId;
             Nombre = nombre;

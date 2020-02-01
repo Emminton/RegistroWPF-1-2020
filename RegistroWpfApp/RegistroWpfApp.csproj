@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UI\Registros\01.jpg" />
+    <None Remove="UI\Registros\boton-x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
@@ -14,6 +19,11 @@
   <ItemGroup>
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="3.1.1" />
     <PackageReference Include="Microsoft.OData.Edm" Version="7.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UI\Registros\01.jpg" />
+    <Resource Include="UI\Registros\boton-x.png" />
   </ItemGroup>
 
 </Project>
