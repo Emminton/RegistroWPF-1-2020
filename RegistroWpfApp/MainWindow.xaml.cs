@@ -16,6 +16,7 @@ using RegistroWpfApp.UI;
 using RegistroWpfApp.UI.Registros;
 using RegistroWpfApp.UI.Cosultas;
 
+
 namespace RegistroWpfApp
 {
     /// <summary>
@@ -33,12 +34,20 @@ namespace RegistroWpfApp
             switch (ConsultaMain.SelectedIndex)
             {
                 case 0:
-                    RegistroPersona ro = new RegistroPersona();
+                    RegistroEstudiante ro = new RegistroEstudiante();
                     ro.Show();
                     break;
                 case 1:
+                    RegistroInscripcion inscricion = new RegistroInscripcion();
+                    inscricion.Show();
+                    break;
+                case 2:
                     Consultar aa = new Consultar();
                     aa.Show();
+                    break;
+                case 3:
+                    ConsultarInscripcion conInscripcio = new ConsultarInscripcion();
+                    conInscripcio.Show();
                     break;
             }
         }

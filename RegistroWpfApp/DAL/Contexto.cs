@@ -8,11 +8,12 @@ namespace RegistroWpfApp.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Personas> Persona { get; set; }
+        public DbSet<Estudiantes> Estudiante { get; set; }
+        public DbSet<Inscripciones> Inscripcion { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optiondBilder)
         {
-            optiondBilder.UseSqlServer(@"Server =.\SqlExpress; Database = PersonaDb;Trusted_Connection = True; ");
+            optiondBilder.UseSqlServer(@"Server =.\SqlExpress; Database = EstudianteDb;Trusted_Connection = True; ");
         }
     }
 }

@@ -9,16 +9,16 @@ using System.Text;
 
 namespace RegistroWpfApp.BLL
 {
-   public  class PersonaBLL
+   public  class EstudianteBLL
     {
-        public static bool Guardar(Personas persona)
+        public static bool Guardar(Estudiantes estudiante)
         {
             bool paso = false;
             Contexto db = new Contexto();
             try
             {
-                if (db.Persona.Add(persona) != null)
-                    paso = db.SaveChanges() > 0;
+                if (db.Estudiante.Add(estudiante) != null)
+                    paso = (db.SaveChanges() > 0);
             }
             catch (Exception)
             {
@@ -30,14 +30,14 @@ namespace RegistroWpfApp.BLL
             }
             return paso;
         }
-        public static bool Modificar(Personas persona)
+        public static bool Modificar(Estudiantes estudiantes)
         {
             bool paso = false;
             Contexto db = new Contexto();
 
             try
             {
-                db.Entry(persona).State = EntityState.Modified;
+                db.Entry(estudiantes).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
 
             }
@@ -59,7 +59,7 @@ namespace RegistroWpfApp.BLL
             Contexto db = new Contexto();
             try
             {
-                var eliminar = db.Persona.Find(id);
+                var eliminar = db.Estudiante.Find(id);
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }
@@ -73,13 +73,13 @@ namespace RegistroWpfApp.BLL
             }
             return paso;
         }
-        public static Personas Buscar(int id)
+        public static Estudiantes Buscar(int id)
         {
             Contexto db = new Contexto();
-            Personas persona = new Personas();
+            Estudiantes estudiante = new Estudiantes();
             try
             {
-                persona = db.Persona.Find(id);
+                estudiante = db.Estudiante.Find(id);
 
             }
             catch (Exception)
@@ -91,15 +91,15 @@ namespace RegistroWpfApp.BLL
                 db.Dispose();
 
             }
-            return persona;
+            return estudiante;
         }
-        public static List<Personas>GetLis(Expression<Func<Personas,bool>> persona)
+        public static List<Estudiantes>GetLis(Expression<Func<Estudiantes,bool>> estudiante)
         {
-            List<Personas> lista = new List<Personas>();
+            List<Estudiantes> lista = new List<Estudiantes>();
            Contexto db = new Contexto();
             try
             {
-                lista = db.Persona.Where(persona).ToList(); 
+                lista = db.Estudiante.Where(estudiante).ToList(); 
             }
             catch (Exception)
             {

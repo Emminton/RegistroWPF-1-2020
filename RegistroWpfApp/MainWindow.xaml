@@ -20,8 +20,11 @@
         <DatePicker HorizontalAlignment="Left" Height="6" Margin="195,132,0,0" VerticalAlignment="Top" Width="3" Grid.Row="2"/>
         <Label Content="Consultar" HorizontalAlignment="Left" Margin="24,6,0,0" VerticalAlignment="Top" Height="32" Width="133" FontWeight="Bold" FontSize="14"/>
         <ComboBox x:Name="ConsultaMain" HorizontalAlignment="Left" Margin="24,38,0,0" VerticalAlignment="Top" Width="154" Height="22" SelectionChanged="ConsultaMain_SelectionChanged">
-            <ComboBoxItem Content="Registrar Persona" FontSize="14" FontWeight="Bold"/>
-            <ComboBoxItem Content="Consultar" FontSize="14" FontWeight="Bold"/>
+            <ComboBoxItem Content="Registrar Estudiaante" FontSize="14" FontWeight="Bold"/>
+            <ComboBoxItem Content="Registrar Inscripcion" FontSize="14" FontWeight="Bold"/>
+            <ComboBoxItem Content="Consultar Estudiante" FontSize="14" FontWeight="Bold"/>
+            <ComboBoxItem Content="Consultar Inscripcion" FontSize="14" FontWeight="Bold"/>
+                       
         </ComboBox>
 
     </Grid>

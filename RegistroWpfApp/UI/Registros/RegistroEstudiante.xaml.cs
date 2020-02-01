@@ -15,55 +15,49 @@ using System.Windows.Shapes;
 namespace RegistroWpfApp.UI.Registros
 {
     /// <summary>
-    /// Interaction logic for RegistroPersona.xaml
+    /// Interaction logic for RegistroEstudiante.xaml
     /// </summary>
-    public partial class RegistroPersona : Window
+    public partial class RegistroEstudiante : Window
     {
-        public RegistroPersona()
+        public RegistroEstudiante()
         {
             InitializeComponent();
-            PersonaIDTex.Text = "0";
+            EstudianteIDTex.Text = "0";
         }
        private void Limpiar()
         {
-            PersonaIDTex.Text = string.Empty;
+            EstudianteIDTex.Text = string.Empty;
             NombreTex.Text = string.Empty;
             TelefonoTex.Text = string.Empty;
             CedulaTex.Text = string.Empty;
             DireccionTex.Text = string.Empty;
             FechaNacimientoDatePicke.SelectedDate = DateTime.Now;
-            InscripcionTex.Text ="0";
-            PagoTex.Text = "0";
-            BalanceTex.Text = "0";
-            PersonaIDTex.Text = "0";
+          
+            EstudianteIDTex.Text = "0";
         }
 
-        private  Personas LlenaClase()
+        private  Estudiantes LlenaClase()                                    
         {
-           Personas persona = new Personas();
-           persona.PersonaId = Convert.ToInt32(PersonaIDTex.Text);
-           persona.Nombre = NombreTex.Text;
-           persona.Telefono = TelefonoTex.Text;
-           persona.Cedula = CedulaTex.Text;
-           persona.Direccion = DireccionTex.Text;
-           persona.FechaNacimiento = FechaNacimientoDatePicke.DisplayDate;
-           persona.Inscripcion = Convert.ToDouble(InscripcionTex.Text);
-           persona.Pago = Convert.ToDouble(PagoTex);
-           persona.Balance = Convert.ToDouble(BalanceTex);
-           return persona;
+           Estudiantes estudiante = new Estudiantes();
+           estudiante.EstudianteId = Convert.ToInt32(EstudianteIDTex.Text);
+           estudiante.Nombre = NombreTex.Text;
+           estudiante.Telefono = TelefonoTex.Text;
+           estudiante.Cedula = CedulaTex.Text;
+           estudiante.Direccion = DireccionTex.Text;
+           estudiante.FechaNacimiento = FechaNacimientoDatePicke.DisplayDate;
+           //estudiante.Balance = Convert.ToDecimal(BalanceTex.Text);
+           return estudiante;
         }
 
-        private void LlenaCampo(Personas persona)
+        private void LlenaCampo(Estudiantes estudiantes)
         {
-            PersonaIDTex.Text = Convert.ToString(persona.PersonaId);
-            NombreTex.Text = persona.Nombre;
-            TelefonoTex.Text = persona.Telefono;
-            CedulaTex.Text = persona.Cedula;
-            DireccionTex.Text = persona.Direccion;
-            FechaNacimientoDatePicke.SelectedDate = persona.FechaNacimiento;
-            InscripcionTex.Text = Convert.ToString(persona.Inscripcion);
-            PagoTex.Text = Convert.ToString(persona.Pago);
-            BalanceTex.Text = Convert.ToString(persona.Balance);
+            EstudianteIDTex.Text = Convert.ToString(estudiantes.EstudianteId);
+            NombreTex.Text = estudiantes.Nombre;
+            TelefonoTex.Text = estudiantes.Telefono;
+            CedulaTex.Text = estudiantes.Cedula;
+            DireccionTex.Text = estudiantes.Direccion;
+            FechaNacimientoDatePicke.SelectedDate = estudiantes.FechaNacimiento;
+            //BalanceTex.Text = Convert.ToString(estudiantes.Balance);
         }
 
         private void ___NuevoButton__Click(object sender, RoutedEventArgs e)
@@ -73,15 +67,15 @@ namespace RegistroWpfApp.UI.Registros
 
         private void ___GuardaButton__Click(object sender, RoutedEventArgs e)
         {
-            Personas persona;
+            Estudiantes persona;
             bool paso = false;
             if (!Validar())
                 return;
 
             persona = LlenaClase();
 
-            if (Convert.ToInt32(PersonaIDTex.Text)==0)
-                paso = PersonaBLL.Guardar(persona);
+            if (Convert.ToInt32(EstudianteIDTex.Text)==0)
+                paso = EstudianteBLL.Guardar(persona);
             else
             {
                 if (!ExisteEnLaBaseDeDatos())
@@ -89,7 +83,7 @@ namespace RegistroWpfApp.UI.Registros
                    MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                paso = PersonaBLL.Modificar(persona);
+                paso = EstudianteBLL.Modificar(persona);
             }
             if (paso)
             {
@@ -102,17 +96,17 @@ namespace RegistroWpfApp.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Personas persona = PersonaBLL.Buscar(Convert.ToInt32(PersonaIDTex.Text));
+            Estudiantes persona = EstudianteBLL.Buscar(Convert.ToInt32(EstudianteIDTex.Text));
             return (persona != null);
         }   
         
         private void ___EliminarButton_Click(object sender, RoutedEventArgs e)//El metodo Eliminar Persona 
         {
             int id;
-            int.TryParse(PersonaIDTex.Text,out id); 
+            int.TryParse(EstudianteIDTex.Text,out id); 
 
             Limpiar();
-            if (PersonaBLL.Eliminar(id))
+            if (EstudianteBLL.Eliminar(id))
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -121,10 +115,10 @@ namespace RegistroWpfApp.UI.Registros
             bool paso = true;
             
 
-            if(PersonaIDTex.Text== "")
+            if(EstudianteIDTex.Text== "")
             {
                 MessageBox.Show("El Campo ID no puede estar vacio");
-                PersonaIDTex.Focus();
+                EstudianteIDTex.Focus();
                 paso = false;
             }
             if (NombreTex.Text== string.Empty)
@@ -153,34 +147,21 @@ namespace RegistroWpfApp.UI.Registros
                 DireccionTex.Focus();
                 paso = false;
             }
-            if(InscripcionTex.Text == "0" )
-            {
-                MessageBox.Show("El campo Inscripcion no puede ser cero..");
-                InscripcionTex.Focus();
-                paso = false;
-                   
-            }
-            if(PagoTex.Text == "0")
-            {
-                MessageBox.Show("Debe de pagar antes de hacer otra Inscripcion...");
-                PagoTex.Focus();
-                paso = false;
-            }
-
+          
             return paso;           
         }
         private void ___BuscarButton__Click(object sender, RoutedEventArgs e)
         {
             int id;
-            Personas persona = new Personas();
-            int.TryParse(PersonaIDTex.Text, out id);
+            Estudiantes estudiantes = new Estudiantes();
+            int.TryParse(EstudianteIDTex.Text, out id);
 
             Limpiar();
-            persona = PersonaBLL.Buscar(id);
-            if(persona != null)
+            estudiantes = EstudianteBLL.Buscar(id);
+            if(estudiantes != null)
             {
                 
-                LlenaCampo(persona);
+                LlenaCampo(estudiantes);
             }
             else
             {

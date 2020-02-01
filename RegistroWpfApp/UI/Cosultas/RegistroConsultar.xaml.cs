@@ -26,35 +26,35 @@ namespace RegistroWpfApp.UI.Cosultas
         }
         private void ConsultarButto_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Personas>();
+            var listado = new List<Estudiantes>();
 
             if (CriterioTexBox.Text.Trim().Length > 0)
             {
                 switch (FiltrarComBox.SelectedIndex)
                 {
                     case 0:
-                        listado = PersonaBLL.GetLis(prop => true);
+                        listado = EstudianteBLL.GetLis(prop => true);
                         break;
 
                     case 1:
                         int id = Convert.ToInt32(CriterioTexBox.Text);
-                        listado = PersonaBLL.GetLis(p => p.PersonaId == id);
+                        listado = EstudianteBLL.GetLis(p => p.EstudianteId == id);
                         break;
 
                     case 2:
-                        listado = PersonaBLL.GetLis(p => p.Nombre.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetLis(p => p.Nombre.Contains(CriterioTexBox.Text));
                         break;
 
                     case 3:
-                        listado = PersonaBLL.GetLis(p => p.Direccion.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetLis(p => p.Direccion.Contains(CriterioTexBox.Text));
                         break;
 
                     case 4:
-                        listado = PersonaBLL.GetLis(p => p.Telefono.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetLis(p => p.Telefono.Contains(CriterioTexBox.Text));
                         break;
 
                     case 5:
-                        listado = PersonaBLL.GetLis(p => p.Cedula.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetLis(p => p.Cedula.Contains(CriterioTexBox.Text));
                         break;
                    
                 }
@@ -63,10 +63,10 @@ namespace RegistroWpfApp.UI.Cosultas
             }
             else
             {
-                listado = PersonaBLL.GetLis(p => true);
+                listado = EstudianteBLL.GetLis(p => true);
 
             }
-            //listado = listado.Where(c => c.FechaNacimiento.Date >= DesdeDateTimePcker.SelectedDate.Value && c.FechaNacimiento.Date <= HastaDateTimePicker.SelectedDate.Value).ToList();
+            
             ConsultaDateGridView.ItemsSource = null;
             ConsultaDateGridView.ItemsSource = listado;
         }
