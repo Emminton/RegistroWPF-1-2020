@@ -13,6 +13,9 @@ namespace RegistroWpfApp.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
+            bool paso;
+
+
 
             Assert.Fail();
         }
