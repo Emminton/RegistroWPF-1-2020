@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroWpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="810">
-    <Grid Height="373">
+        Title="MainWindow" Height="417" Width="830">
+    <Grid Height="400" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="557*"/>
             <ColumnDefinition Width="243*"/>
@@ -16,16 +16,17 @@
             <RowDefinition Height="0*"/>
             <RowDefinition Height="176*"/>
         </Grid.RowDefinitions>
-        <DataGrid HorizontalAlignment="Left" Height="364" Margin="24,35,0,0" VerticalAlignment="Top" Width="751" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <DataGrid HorizontalAlignment="Left" Height="312" Margin="42,35,0,0" VerticalAlignment="Top" Width="733" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
         <DatePicker HorizontalAlignment="Left" Height="6" Margin="195,132,0,0" VerticalAlignment="Top" Width="3" Grid.Row="2"/>
-        <Label Content="Consultar" HorizontalAlignment="Left" Margin="24,6,0,0" VerticalAlignment="Top" Height="32" Width="133" FontWeight="Bold" FontSize="14"/>
-        <ComboBox x:Name="ConsultaMain" HorizontalAlignment="Left" Margin="24,38,0,0" VerticalAlignment="Top" Width="154" Height="22" SelectionChanged="ConsultaMain_SelectionChanged">
+        <Label Content="Consultar" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Height="32" Width="133" FontWeight="Bold" FontSize="14"/>
+        <ComboBox x:Name="ConsultaMain" HorizontalAlignment="Left" Margin="42,38,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="ConsultaMain_SelectionChanged">
             <ComboBoxItem Content="Registrar Estudiaante" FontSize="14" FontWeight="Bold"/>
             <ComboBoxItem Content="Registrar Inscripcion" FontSize="14" FontWeight="Bold"/>
             <ComboBoxItem Content="Consultar Estudiante" FontSize="14" FontWeight="Bold"/>
             <ComboBoxItem Content="Consultar Inscripcion" FontSize="14" FontWeight="Bold"/>
-                       
+
         </ComboBox>
+        <Label Content="Bienvenido " HorizontalAlignment="Left" Margin="331,4,0,0" VerticalAlignment="Top" Width="125" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </Window>

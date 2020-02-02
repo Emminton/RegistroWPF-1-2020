@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroWpfApp.UI.Registros"
         mc:Ignorable="d"
-        Title="Inscripcion" Height="520" Width="500">
-    <Grid>
+        Title="Inscripcion" Height="530" Width="470">
+    <Grid Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -18,10 +18,10 @@
         <Label Content="Fecha:" HorizontalAlignment="Left" Margin="22,158,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Comentario:" HorizontalAlignment="Left" Margin="17,212,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Monto:" HorizontalAlignment="Left" Margin="17,268,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="InscripcionIDTex" HorizontalAlignment="Left" Margin="125,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" Height="29"/>
-        <TextBox x:Name="EstudianteIDTex" HorizontalAlignment="Left" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="29"/>
-        <TextBox x:Name="ComentarioTex" HorizontalAlignment="Left" Margin="126,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="29"/>
-        <TextBox x:Name="MontoTex" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" RenderTransformOrigin="0.5,0.5" Height="29" Margin="126,268,0,0">
+        <TextBox x:Name="InscripcionIDTex" HorizontalAlignment="Left" Margin="125,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Height="29"/>
+        <TextBox x:Name="EstudianteIDTex" HorizontalAlignment="Left" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
+        <TextBox x:Name="ComentarioTex" HorizontalAlignment="Left" Margin="126,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
+        <TextBox x:Name="MontoTex" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" RenderTransformOrigin="0.5,0.5" Height="29" Margin="126,268,0,0">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -31,15 +31,34 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="Nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="23,416,0,0" VerticalAlignment="Top" Height="58" Width="96" FontSize="14" FontWeight="Bold" Click="Nuevo_Click"/>
-        <Button x:Name="Guardar" Content="Guardar" HorizontalAlignment="Left" Margin="162,415,0,0" VerticalAlignment="Top" Width="101" Height="59" FontSize="14" FontWeight="Bold" Click="Guardar_Click"/>
-        <Button x:Name="Eliminar" Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="102" FontSize="14" FontWeight="Bold" Click="Eliminar_Click" Margin="298,414,0,0"/>
-        <Button x:Name="Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="263,61,0,0" VerticalAlignment="Top" Width="137" Height="29" FontSize="14" FontWeight="Bold" Click="Buscar_Click"/>
-        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="126,158,0,0" VerticalAlignment="Top" Width="274" Height="29"/>
+        <Button x:Name="Nuevo" Content="           Nuevo" HorizontalAlignment="Left" Margin="23,416,0,0" VerticalAlignment="Top" Height="58" Width="110" FontSize="14" FontWeight="Bold" Click="Nuevo_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="businessapplication_accept_ok_male_man_you_negocio_2311 (2).png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Guardar" Content="              Guardar" HorizontalAlignment="Left" Margin="156,416,0,0" VerticalAlignment="Top" Width="118" Height="59" FontSize="14" FontWeight="Bold" Click="Guardar_Click">
+            <Button.Background>
+                <ImageBrush AlignmentX="Left" Stretch="Uniform" ImageSource="businessapplication_edit_male_user_thepencil_theclient_negocio_2321 (1).png"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="Eliminar" Content="               Eliminar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="125" FontSize="14" FontWeight="Bold" Click="Eliminar_Click" Margin="298,414,0,0">
+            <Button.Background>
+                <ImageBrush AlignmentX="Left" Stretch="Uniform" ImageSource="delete_delete_deleteusers_delete_male_user_maleclient_2348.png"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="Buscar" Content="  Buscar" HorizontalAlignment="Left" Margin="324,61,0,0" VerticalAlignment="Top" Width="99" Height="29" FontSize="14" FontWeight="Bold" Click="Buscar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Detective_icon-icons.com_54187.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+
+        </Button>
+        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="126,158,0,0" VerticalAlignment="Top" Width="297" Height="29"/>
         <Label Content="Pago:" HorizontalAlignment="Left" Margin="22,321,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="PagoTex" HorizontalAlignment="Left" Margin="126,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="29"/>
+        <TextBox x:Name="PagoTex" HorizontalAlignment="Left" Margin="126,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
         <Label Content="Balance:" HorizontalAlignment="Left" Margin="22,368,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="BalanceTex" HorizontalAlignment="Left" Margin="126,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="29"/>
+        <TextBox x:Name="BalanceTex" HorizontalAlignment="Left" Margin="126,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
 
     </Grid>
 </Window>

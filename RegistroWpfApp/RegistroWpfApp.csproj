@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="UI\Registros\01.jpg" />
-    <None Remove="UI\Registros\boton-x.png" />
+    <None Remove="UI\Cosultas\Detective_icon-icons.com_54187.png" />
+    <None Remove="UI\Registros\businessapplication_accept_ok_male_man_you_negocio_2311 %282%29.png" />
+    <None Remove="UI\Registros\businessapplication_edit_male_user_thepencil_theclient_negocio_2321 %281%29.png" />
+    <None Remove="UI\Registros\delete_delete_deleteusers_delete_male_user_maleclient_2348.png" />
+    <None Remove="UI\Registros\Detective_icon-icons.com_54187.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="UI\Registros\01.jpg" />
-    <Resource Include="UI\Registros\boton-x.png" />
+    <Resource Include="UI\Cosultas\Detective_icon-icons.com_54187.png" />
+    <Resource Include="UI\Registros\businessapplication_accept_ok_male_man_you_negocio_2311 (2).png" />
+    <Resource Include="UI\Registros\businessapplication_edit_male_user_thepencil_theclient_negocio_2321 (1).png" />
+    <Resource Include="UI\Registros\delete_delete_deleteusers_delete_male_user_maleclient_2348.png" />
+    <Resource Include="UI\Registros\Detective_icon-icons.com_54187.png" />
   </ItemGroup>
 
 </Project>
