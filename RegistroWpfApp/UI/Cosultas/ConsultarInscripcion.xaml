@@ -8,7 +8,7 @@
         Title="ConsultarInscripcion" Height="480" Width="850">
     <Grid Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
         <DataGrid x:Name="ConsultaDateGridView" HorizontalAlignment="Center" Height="338" Margin="0,86,0,0" VerticalAlignment="Top" Width="780"/>
-        <DatePicker x:Name="DesdeDateTimePcker" HorizontalAlignment="Left" Margin="35,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.129,0.049" Width="98"/>
+        <DatePicker x:Name="DesdeDateTimePcker" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.129,0.049" Width="115"/>
         <DatePicker HorizontalAlignment="Left" Height="6" Margin="195,69,0,0" VerticalAlignment="Top" Width="3"/>
         <DatePicker x:Name="HastaDateTimePicker" HorizontalAlignment="Left" Margin="178,57,0,0" VerticalAlignment="Top" Width="107"/>
         <ComboBox x:Name="FiltrarComBox" HorizontalAlignment="Left" Margin="343,57,0,0" VerticalAlignment="Top" Width="121" Height="24">
@@ -16,7 +16,7 @@
             <ComboBoxItem Content="ID" FontSize="14" FontWeight="Bold"/>
         </ComboBox>
         <TextBox x:Name="CriterioTexBox" HorizontalAlignment="Left" Margin="498,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="24"/>
-        <Button x:Name="ConsultarButto" Content="    Consulta" HorizontalAlignment="Left" Margin="692,45,0,0" VerticalAlignment="Top" Height="36" Width="123" Click="ConsultarButto_Click" FontSize="14" FontWeight="Bold">
+        <Button x:Name="ConsultarButto" Content="    Consulta" HorizontalAlignment="Left" Margin="692,45,0,0" VerticalAlignment="Top" Height="36" Width="117" Click="ConsultarButto_Click" FontSize="14" FontWeight="Bold">
             <Button.Background>
                 <ImageBrush ImageSource="Detective_icon-icons.com_54187.png" Stretch="Uniform" AlignmentX="Left"/>
             </Button.Background>

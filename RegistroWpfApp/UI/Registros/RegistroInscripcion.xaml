@@ -21,7 +21,7 @@
         <TextBox x:Name="InscripcionIDTex" HorizontalAlignment="Left" Margin="125,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Height="29"/>
         <TextBox x:Name="EstudianteIDTex" HorizontalAlignment="Left" Margin="126,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
         <TextBox x:Name="ComentarioTex" HorizontalAlignment="Left" Margin="126,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
-        <TextBox x:Name="MontoTex" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" RenderTransformOrigin="0.5,0.5" Height="29" Margin="126,268,0,0">
+        <TextBox x:Name="MontoTex" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" RenderTransformOrigin="0.5,0.5" Height="29" Margin="126,268,0,0" TextChanged="MontoTex_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,7 +56,7 @@
         </Button>
         <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="126,158,0,0" VerticalAlignment="Top" Width="297" Height="29"/>
         <Label Content="Pago:" HorizontalAlignment="Left" Margin="22,321,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="PagoTex" HorizontalAlignment="Left" Margin="126,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
+        <TextBox x:Name="PagoTex" HorizontalAlignment="Left" Margin="126,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29" TextChanged="PagoTex_TextChanged"/>
         <Label Content="Balance:" HorizontalAlignment="Left" Margin="22,368,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="BalanceTex" HorizontalAlignment="Left" Margin="126,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
 

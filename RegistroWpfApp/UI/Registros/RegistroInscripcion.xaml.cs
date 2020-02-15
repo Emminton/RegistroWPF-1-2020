@@ -22,6 +22,7 @@ namespace RegistroWpfApp.UI.Registros
         public RegistroInscripcion()
         {
             InitializeComponent();
+           
             InscripcionIDTex.Text = "0";
             EstudianteIDTex.Text = "0";
         }
@@ -48,13 +49,14 @@ namespace RegistroWpfApp.UI.Registros
             inscricion.Fecha = FechaDatePicker.DisplayDate;
             inscricion.EstudianteId = Convert.ToInt32(EstudianteIDTex.Text);
             inscricion.Comentario = ComentarioTex.Text;
-            inscricion.Balance = Convert.ToDecimal(MontoTex.Text) - Convert.ToDecimal(PagoTex.Text);
+            inscricion.InscripcionBalance = Convert.ToDecimal(MontoTex.Text) - Convert.ToDecimal(PagoTex.Text);
             monto = Convert.ToDecimal(MontoTex.Text);
             pago = Convert.ToDecimal(PagoTex.Text);
             balance = monto - pago;
             inscricion.Monto = monto;
             inscricion.Pago = pago;
-            inscricion.Balance = balance;
+            inscricion.InscripcionBalance = balance;
+          
             return inscricion;
         }
 
@@ -66,7 +68,8 @@ namespace RegistroWpfApp.UI.Registros
             ComentarioTex.Text = inscripcion.Comentario;
             MontoTex.Text = Convert.ToString(inscripcion.Monto);
             PagoTex.Text = Convert.ToString(inscripcion.Pago);
-            BalanceTex.Text = Convert.ToString(inscripcion.Balance);
+            BalanceTex.Text = Convert.ToString(inscripcion.InscripcionBalance);
+                    
         }
 
         private void Guardar_Click(object sender, RoutedEventArgs e)
@@ -78,11 +81,11 @@ namespace RegistroWpfApp.UI.Registros
 
             inscripcion = LlenaClase();
 
-            if (Convert.ToInt32(EstudianteIDTex.Text) == 0)
+            if (Convert.ToInt32(InscripcionIDTex.Text) == 0 && ExisteEnLaBaseDeDatosEstudiante() == true)
                 paso = InscripcionBLL.Guardar(inscripcion);
             else
             {
-                if (!ExisteEnLaBaseDeDatos())
+                if (!ExisteEnLaBaseDeDatosInscripcion())
                 {
                     MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -103,11 +106,19 @@ namespace RegistroWpfApp.UI.Registros
             Limpiar();
 
         }
-        private bool ExisteEnLaBaseDeDatos()
+        private bool ExisteEnLaBaseDeDatosEstudiante()
+        {
+            Estudiantes persona = EstudianteBLL.Buscar(Convert.ToInt32(EstudianteIDTex.Text));
+            return (persona != null);
+        }
+
+        private bool ExisteEnLaBaseDeDatosInscripcion()
         {
             Inscripciones persona = InscripcionBLL.Buscar(Convert.ToInt32(InscripcionIDTex.Text));
             return (persona != null);
         }
+
+     
 
         private void Eliminar_Click(object sender, RoutedEventArgs e)
         {
@@ -123,7 +134,7 @@ namespace RegistroWpfApp.UI.Registros
         {
             int id;
             Inscripciones inscripcion = new Inscripciones();
-            int.TryParse(EstudianteIDTex.Text, out id);
+            int.TryParse(InscripcionIDTex.Text, out id);
 
             Limpiar();
             inscripcion = InscripcionBLL.Buscar(id);
@@ -181,6 +192,44 @@ namespace RegistroWpfApp.UI.Registros
             return paso;
         }
 
-      
+        private void MontoTex_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            decimal monto  = 0;
+            decimal pago = 0;
+
+            if (!string.IsNullOrWhiteSpace(MontoTex.Text) && MontoTex.Text != "-")
+            {
+                monto = decimal.Parse(MontoTex.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(PagoTex.Text) && PagoTex.Text != "-")
+            {
+                pago = decimal.Parse(PagoTex.Text);
+            }
+
+            decimal resultado = monto - pago;
+
+            BalanceTex.Text = resultado.ToString();
+        }
+
+        private void PagoTex_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            decimal monto = 0;
+            decimal pago = 0;
+
+            if (!string.IsNullOrWhiteSpace(MontoTex.Text) && MontoTex.Text != "-")
+            {
+                monto = decimal.Parse(MontoTex.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(PagoTex.Text) && PagoTex.Text != "-")
+            {
+                pago = decimal.Parse(PagoTex.Text);
+            }
+
+            decimal resultado = monto - pago;
+
+            BalanceTex.Text = resultado.ToString();
+        }
+       
     }
+    
 }

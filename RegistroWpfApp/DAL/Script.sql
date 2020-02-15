@@ -12,18 +12,25 @@ Telefono varchar (13),
 Cedula varchar (15),
 Direccion varchar (max),
 FechaNacimiento dateTime,
-Balance decimal,
+EstudianteBalance decimal,
+
 
 );
+
+drop database EstudianteDb
+
+select * from Estudiante
 
 create Table Inscripcion
 (
 InscripcionId int primary key identity,
 Fecha datetime default getdate(),
-EstudianteId int ,
 Comentario varchar(400),
+EstudianteId int ,
 Monto decimal,
 Pago decimal,
-Balance decimal,
+InscripcionBalance decimal,
 
 );
+
+select * from Inscripcion

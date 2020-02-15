@@ -20,7 +20,7 @@ namespace RegistroWpfApp.BLL.Tests
             estudiantes.Telefono = "8090888";
             estudiantes.Cedula = "056";
             estudiantes.Direccion = "calle nosotros";
-            estudiantes.Balance = 125012;
+            estudiantes.EstudianteBalance = 0;
             estudiantes.FechaNacimiento = DateTime.Now;
             paso = EstudianteBLL.Guardar(estudiantes);
 
@@ -32,12 +32,12 @@ namespace RegistroWpfApp.BLL.Tests
         {
             bool paso;
             Estudiantes estudiantes = new Estudiantes();
-            estudiantes.EstudianteId = 3;
+            estudiantes.EstudianteId = 1;
             estudiantes.Nombre = "Emminton Manuel Ureña Santana ";
             estudiantes.Telefono = "8090888";
             estudiantes.Cedula = "056";
             estudiantes.Direccion = "calle nosotros";
-            estudiantes.Balance = 125012;
+            estudiantes.EstudianteBalance = 0;
             estudiantes.FechaNacimiento = DateTime.Now;
             paso = EstudianteBLL.Modificar(estudiantes);
             Assert.AreEqual(paso, true);
@@ -47,7 +47,7 @@ namespace RegistroWpfApp.BLL.Tests
         public void EliminarTest()
         {
             bool paso;
-            paso = EstudianteBLL.Eliminar(3);
+            paso = EstudianteBLL.Eliminar(2);
 
             Assert.AreEqual(paso, true);
         }
@@ -65,7 +65,7 @@ namespace RegistroWpfApp.BLL.Tests
         public void GetLisTest()
         {
             var listado = new List<Estudiantes>();
-            listado = EstudianteBLL.GetLis(p => true);
+            listado = EstudianteBLL.GetList(p => true);
             Assert.AreEqual(listado, listado);
         }
     }

@@ -1,16 +1,7 @@
 ﻿using RegistroWpfApp.BLL;
 using RegistroWpfApp.Entidades;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RegistroWpfApp.UI.Registros
 {
@@ -19,6 +10,7 @@ namespace RegistroWpfApp.UI.Registros
     /// </summary>
     public partial class RegistroEstudiante : Window
     {
+          
         public RegistroEstudiante()
         {
             InitializeComponent();
@@ -36,7 +28,7 @@ namespace RegistroWpfApp.UI.Registros
             BalanceTex.Text = "0";        
             EstudianteIDTex.Text = "0";
         }
-
+         
         private  Estudiantes LlenaClase()                                    
         {
            Estudiantes estudiante = new Estudiantes();
@@ -46,7 +38,7 @@ namespace RegistroWpfApp.UI.Registros
            estudiante.Cedula = CedulaTex.Text;
            estudiante.Direccion = DireccionTex.Text;
            estudiante.FechaNacimiento = FechaNacimientoDatePicke.DisplayDate;
-           estudiante.Balance = Convert.ToDecimal(BalanceTex.Text);
+           estudiante.EstudianteBalance = Convert.ToDecimal(BalanceTex.Text);
            return estudiante;
         }
 
@@ -58,7 +50,7 @@ namespace RegistroWpfApp.UI.Registros
             CedulaTex.Text = estudiantes.Cedula;
             DireccionTex.Text = estudiantes.Direccion;
             FechaNacimientoDatePicke.SelectedDate = estudiantes.FechaNacimiento;
-            BalanceTex.Text = Convert.ToString(estudiantes.Balance);
+            BalanceTex.Text = Convert.ToString(estudiantes.EstudianteBalance);
         }
 
         private void ___NuevoButton__Click(object sender, RoutedEventArgs e)
@@ -95,21 +87,29 @@ namespace RegistroWpfApp.UI.Registros
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+
         private bool ExisteEnLaBaseDeDatos()
         {
             Estudiantes persona = EstudianteBLL.Buscar(Convert.ToInt32(EstudianteIDTex.Text));
             return (persona != null);
         }   
         
-        private void ___EliminarButton_Click(object sender, RoutedEventArgs e)//El metodo Eliminar Persona 
+        private void ___EliminarButton_Click(object sender, RoutedEventArgs e)//El Boton Eliminar Estudiante
         {
             int id;
-            int.TryParse(EstudianteIDTex.Text,out id); 
+            int.TryParse(EstudianteIDTex.Text,out id);
 
             Limpiar();
+
             if (EstudianteBLL.Eliminar(id))
+            
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+            
+            else
+            
+                MessageBox.Show("Error Al eliminar Elija un Estudiante.");
+            
+        } 
 
         private bool Validar()//Se valindan los campos para no cometer errore al llenarlos 
         {
@@ -151,6 +151,7 @@ namespace RegistroWpfApp.UI.Registros
           
             return paso;           
         }
+
         private void ___BuscarButton__Click(object sender, RoutedEventArgs e)
         {
             int id;
@@ -168,6 +169,6 @@ namespace RegistroWpfApp.UI.Registros
             {
                 MessageBox.Show("Persona NO Encontrada...");
             }
-        }                
+        }    
     }
 }

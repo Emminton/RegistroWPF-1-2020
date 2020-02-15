@@ -18,11 +18,11 @@ namespace RegistroWpfApp.BLL.Tests
 
             i.InscripcionId = 0;
             i.Fecha = DateTime.Now;
-            i.EstudianteId = 0;
+            i.EstudianteId = 1;
             i.Comentario = "hola comos estan.";
             i.Pago = 500; 
             i.Monto = 1000;
-            i.Balance = 500;
+            i.InscripcionBalance = 500;
             paso = InscripcionBLL.Guardar(i);
 
             Assert.AreEqual(paso, true);
@@ -34,13 +34,13 @@ namespace RegistroWpfApp.BLL.Tests
             bool paso;
             Inscripciones i = new Inscripciones();
 
-            i.InscripcionId = 7;
+            i.InscripcionId = 1;
             i.Fecha = DateTime.Now;
-            i.EstudianteId = 0;
+            i.EstudianteId = 1;
             i.Comentario = "hola comos estan.";
             i.Pago = 500; 
             i.Monto = 1000;
-            i.Balance = 500;
+            i.InscripcionBalance = 0;
             paso = InscripcionBLL.Modificar(i);
             Assert.AreEqual(paso, true);
         }
@@ -49,7 +49,7 @@ namespace RegistroWpfApp.BLL.Tests
         public void EliminarTest()
         {
             bool paso;
-            paso = InscripcionBLL.Eliminar(7);
+            paso = InscripcionBLL.Eliminar(2);
 
             Assert.AreEqual(paso, true);
         }
@@ -66,7 +66,7 @@ namespace RegistroWpfApp.BLL.Tests
         public void GetLisTest()
         {
             var  listado = new List<Inscripciones>();
-            listado = InscripcionBLL.GetLis(p => true);
+            listado = InscripcionBLL.GetList(p => true);
             Assert.AreEqual(listado, listado);
         }
     }

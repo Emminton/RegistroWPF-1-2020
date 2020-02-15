@@ -34,12 +34,12 @@ namespace RegistroWpfApp.UI.Cosultas
                 switch (FiltrarComBox.SelectedIndex)
                 {
                     case 0:
-                        listado = InscripcionBLL.GetLis(prop => true);
+                        listado = InscripcionBLL.GetList(prop => true);
                         break;
 
                     case 1:
                         int id = Convert.ToInt32(CriterioTexBox.Text);
-                        listado = InscripcionBLL.GetLis(p => p.InscripcionId == id);
+                        listado = InscripcionBLL.GetList(p => p.InscripcionId == id);
                         break;                          
                     default:
                         MessageBox.Show("No existe esa opción en el Filtro");
@@ -51,7 +51,7 @@ namespace RegistroWpfApp.UI.Cosultas
             }
             else
             {
-                listado = InscripcionBLL.GetLis(p => true);
+                listado = InscripcionBLL.GetList(p => true);
 
             }
             

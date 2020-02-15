@@ -18,7 +18,7 @@ namespace RegistroWpfApp.BLL
             try
             {
                 if (db.Inscripcion.Add(inscripcion) != null)
-                    paso = (db.SaveChanges() > 0);
+                    paso = (db.SaveChanges() > 0 && AfectarBalanceEstudiante(inscripcion));
             }
             catch (Exception)
             {
@@ -37,10 +37,18 @@ namespace RegistroWpfApp.BLL
 
             try
             {
-                db.Entry(inscripcion).State = EntityState.Modified;
-                paso = (db.SaveChanges() > 0);
-
+                if (inscripcion.Pago > 0)
+                {
+                    db.Entry(inscripcion).State = EntityState.Modified;
+                    paso = (db.SaveChanges() > 0 && AfectarBalanceEstudianteAlModificar(inscripcion));
+                }
+                else
+                {
+                    db.Entry(inscripcion).State = EntityState.Modified;
+                    paso = (db.SaveChanges() > 0);
+                }
             }
+            
             catch (Exception)
             {
                 throw;
@@ -93,7 +101,7 @@ namespace RegistroWpfApp.BLL
             }
             return inscripcion;
         }
-        public static List<Inscripciones> GetLis(Expression<Func<Inscripciones, bool>> inscripcion)
+        public static List<Inscripciones> GetList(Expression<Func<Inscripciones, bool>> inscripcion)
         {
             List<Inscripciones> lista = new List<Inscripciones>();
             Contexto db = new Contexto();
@@ -110,6 +118,50 @@ namespace RegistroWpfApp.BLL
                 db.Dispose();
             }
             return lista;
+        }
+        //este metodo refleja el Balance en la tabla de el estudiante
+        private static bool AfectarBalanceEstudiante(Inscripciones inscripcion)
+        {
+            bool paso = false; 
+             Contexto db = new Contexto();
+            try
+            {
+                db.Estudiante.Find(inscripcion.EstudianteId).EstudianteBalance += inscripcion.InscripcionBalance;
+                paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return paso;
+        }
+
+        private static bool AfectarBalanceEstudianteAlModificar(Inscripciones inscripcion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                db.Estudiante.Find(inscripcion.EstudianteId).EstudianteBalance -= inscripcion.Pago;
+                paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return paso;
         }
     }
 }

@@ -33,28 +33,28 @@ namespace RegistroWpfApp.UI.Cosultas
                 switch (FiltrarComBox.SelectedIndex)
                 {
                     case 0:
-                        listado = EstudianteBLL.GetLis(prop => true);
+                        listado = EstudianteBLL.GetList(prop => true);
                         break;
 
                     case 1:
                         int id = Convert.ToInt32(CriterioTexBox.Text);
-                        listado = EstudianteBLL.GetLis(p => p.EstudianteId == id);
+                        listado = EstudianteBLL.GetList(p => p.EstudianteId == id);
                         break;
 
                     case 2:
-                        listado = EstudianteBLL.GetLis(p => p.Nombre.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetList(p => p.Nombre.Contains(CriterioTexBox.Text));
                         break;
 
                     case 3:
-                        listado = EstudianteBLL.GetLis(p => p.Direccion.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetList(p => p.Direccion.Contains(CriterioTexBox.Text));
                         break;
 
                     case 4:
-                        listado = EstudianteBLL.GetLis(p => p.Telefono.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetList(p => p.Telefono.Contains(CriterioTexBox.Text));
                         break;
 
                     case 5:
-                        listado = EstudianteBLL.GetLis(p => p.Cedula.Contains(CriterioTexBox.Text));
+                        listado = EstudianteBLL.GetList(p => p.Cedula.Contains(CriterioTexBox.Text));
                         break;
                    
                 }
@@ -63,7 +63,7 @@ namespace RegistroWpfApp.UI.Cosultas
             }
             else
             {
-                listado = EstudianteBLL.GetLis(p => true);
+                listado = EstudianteBLL.GetList(p => true);
 
             }
             

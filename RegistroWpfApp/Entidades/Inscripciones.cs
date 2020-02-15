@@ -15,7 +15,7 @@ namespace RegistroWpfApp.Entidades
         public string Comentario { get; set; }
         public decimal Pago { get; set; }
         public decimal Monto { get; set; }
-        public decimal Balance { get; set; }
+        public decimal InscripcionBalance { get; set; }
 
         public Inscripciones()
         {
@@ -30,7 +30,7 @@ namespace RegistroWpfApp.Entidades
             Comentario = comentario;
             Pago = pago;
             Monto = monto;
-            Balance = balance;
+            InscripcionBalance = balance;
         }
     }
 }
