@@ -13,7 +13,7 @@ namespace RegistroWpfApp.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optiondBilder)
         {
-            optiondBilder.UseSqlServer(@"Server =.\SqlExpress; Database = EstudianteDb;Trusted_Connection = True; ");
+            optiondBilder.UseSqlServer(@"Server =.\sqlExpress; Database = EstudianteDb; Trusted_Connection = true; ");
         }
     }
 }

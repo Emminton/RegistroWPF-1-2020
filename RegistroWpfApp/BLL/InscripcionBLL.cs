@@ -20,6 +20,7 @@ namespace RegistroWpfApp.BLL
                 if (db.Inscripcion.Add(inscripcion) != null)
                     paso = (db.SaveChanges() > 0 && AfectarBalanceEstudiante(inscripcion));
             }
+
             catch (Exception)
             {
                 throw;
@@ -61,13 +62,15 @@ namespace RegistroWpfApp.BLL
             }
             return paso;
         }
-        public static bool Eliminar(int id)
+        public static bool Eliminar(int id, int estudianteId )
         {
             bool paso = false;
             Contexto db = new Contexto();
             try
             {
-                var eliminar = db.Inscripcion.Find(id);
+                var eliminar = db.Inscripcion.Find(id).InscripcionBalance = 0;
+                var Eliminar = db.Estudiante.Find(estudianteId).EstudianteBalance = 0;
+
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = (db.SaveChanges() > 0);
             }

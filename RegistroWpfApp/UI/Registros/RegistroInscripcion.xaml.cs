@@ -118,23 +118,25 @@ namespace RegistroWpfApp.UI.Registros
             return (persona != null);
         }
 
-     
-
         private void Eliminar_Click(object sender, RoutedEventArgs e)
         {
             int id;
             int.TryParse(InscripcionIDTex.Text, out id);
+            int EstudianteId;
+            int.TryParse(EstudianteIDTex.Text, out EstudianteId);
 
             Limpiar();
-            if (InscripcionBLL.Eliminar(id))
-                MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            if (InscripcionBLL.Eliminar(id, EstudianteId))
+                MessageBox.Show("Se Eliminado El Balance", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show("No se puede eliminar, porque no existe.");
         }
         private void Buscar_Click(object sender, RoutedEventArgs e)
         {
             int id;
             Inscripciones inscripcion = new Inscripciones();
             int.TryParse(InscripcionIDTex.Text, out id);
+
 
             Limpiar();
             inscripcion = InscripcionBLL.Buscar(id);
@@ -144,7 +146,7 @@ namespace RegistroWpfApp.UI.Registros
             }
             else
             {
-                MessageBox.Show("Persona NO Encontrada...");
+                MessageBox.Show("Inscripcion NO Encontrada...");
             }
         }
 

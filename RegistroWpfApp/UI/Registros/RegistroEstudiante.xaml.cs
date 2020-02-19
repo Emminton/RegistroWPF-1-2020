@@ -167,7 +167,7 @@ namespace RegistroWpfApp.UI.Registros
             }
             else
             {
-                MessageBox.Show("Persona NO Encontrada...");
+                MessageBox.Show("Estudiante NO Encontrada...");
             }
         }    
     }
